@@ -24,6 +24,14 @@ knowledge0 = And(
 # B says nothing.
 knowledge1 = And(
     # TODO
+    Or(AKnight,AKnave),
+    Or(BKnight,BKnave),
+
+    Not(And(AKnight,AKnave)),
+    Not(And(BKnave,BKnave)),
+
+    Implication(AKnight,And(AKnave,BKnave)),
+    Implication(BKnight,Not(And(AKnave,BKnave))),
 )
 
 # Puzzle 2
