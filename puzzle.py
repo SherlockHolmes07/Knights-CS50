@@ -24,14 +24,14 @@ knowledge0 = And(
 # B says nothing.
 knowledge1 = And(
     # TODO
+
     Or(AKnight,AKnave),
     Or(BKnight,BKnave),
 
     Not(And(AKnight,AKnave)),
-    Not(And(BKnave,BKnave)),
+    Not(And(BKnight,BKnave)),
 
-    Implication(AKnight,And(AKnave,BKnave)),
-    Implication(BKnight,Not(And(AKnave,BKnave))),
+    Biconditional(AKnight, And(AKnave,BKnave)),
 )
 
 # Puzzle 2
@@ -39,6 +39,24 @@ knowledge1 = And(
 # B says "We are of different kinds."
 knowledge2 = And(
     # TODO
+
+    Or(AKnight,AKnave),
+    Or(BKnight,BKnave),
+
+    Not(And(AKnight,AKnave)),
+    Not(And(BKnight,BKnave)),
+
+    Biconditional(AKnight, Or
+    (
+        And(AKnight,BKnight), 
+        And(AKnave,BKnave)
+    )),
+
+    Biconditional(BKnight, Or(
+        And(AKnight,BKnave), 
+        And(AKnave,BKnight)
+    ))
+
 )
 
 # Puzzle 3
